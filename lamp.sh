@@ -36,4 +36,4 @@ sudo apt-get install phpmyadmin -y
 
 # Setting permissions
 
-sudo chmown 755 -R /var/www
+sudo chwown 755 -R /var/www
