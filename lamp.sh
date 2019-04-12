@@ -21,8 +21,8 @@ sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
 
 # Installing Mysql
 
-$(sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password $MYSQL_ROOT_PASS')
-$(sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password $MYSQL_ROOT_PASS')
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password root'
 
 sudo apt-get install mysql-server -y
 
@@ -37,6 +37,10 @@ sudo apt-get install phpmyadmin -y
 # Setting permissions
 
 sudo chown 755 -R /var/www
+
+# Setting up phpmyadmin
+
+echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 
 # Restarting Services
 
